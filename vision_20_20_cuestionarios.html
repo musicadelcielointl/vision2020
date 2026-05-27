@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visión 20/20 — Cuestionarios | Milton Valle</title>
+<meta name="description" content="Cuestionarios interactivos del libro Visión 20/20 del pastor Milton Valle. Activa tu visión espiritual a través de la reflexión bíblica.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* Paleta del libro Visión 20/20 — azul medianoche + dorado + marfil */
+  --midnight-1: #2a4d6a;
+  --midnight-2: #1a3a52;
+  --midnight-3: #0d2538;
+  --midnight-deep: #081929;
+  --ivory: #f5e9c4;
+  --ivory-soft: #ede0b8;
+  --gold: #d4af37;
+  --gold-deep: #b8923a;
+  --gold-light: #e6c659;
+  --gold-glow: rgba(212, 175, 55, 0.18);
+  --rule: rgba(212, 175, 55, 0.4);
+  --rule-soft: rgba(212, 175, 55, 0.25);
+  --ink: #f5e9c4;
+  --ink-soft: rgba(245, 233, 196, 0.85);
+  --ink-muted: rgba(245, 233, 196, 0.65);
+  --paper: #1a3a52;
+  --paper-warm: #234560;
+  --paper-deep: #2a4d6a;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.18);
+  --shadow-lift: 0 4px 12px rgba(0, 0, 0, 0.35), 0 16px 48px rgba(0, 0, 0, 0.25);
+  --burgundy: #d4af37;
+  --burgundy-deep: #b8923a;
+  --sage: #d4af37;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background:
+    radial-gradient(circle at 50% 35%, var(--midnight-1) 0%, var(--midnight-2) 50%, var(--midnight-3) 100%),
+    var(--midnight-deep);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 18px;
+  font-weight: 400;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Glow dorado decorativo */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 30%, var(--gold-glow) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(212, 175, 55, 0.06) 0%, transparent 60%);
+}
+
+/* Grain overlay sutil */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: 1;
+  background-image:
+    repeating-radial-gradient(circle at 20% 30%, transparent 0, rgba(245, 233, 196, 0.015) 1px, transparent 2px),
+    repeating-radial-gradient(circle at 80% 70%, transparent 0, rgba(245, 233, 196, 0.015) 1px, transparent 2px);
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 60px 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.hero::before, .hero::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  bottom: -1px;
+}
+.hero::before { left: calc(50% - 80px); }
+.hero::after { left: calc(50% + 20px); }
+
+.hero-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(56px, 12vw, 120px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.hero h1 .accent {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--burgundy);
+}
+
+.hero-divisor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 32px auto;
+  max-width: 300px;
+}
+.hero-divisor span {
+  height: 1px;
+  flex: 1;
+  background: var(--rule);
+}
+.hero-divisor svg {
+  width: 24px;
+  height: 24px;
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--ink-soft);
+  font-weight: 400;
+  max-width: 580px;
+  margin: 0 auto 24px;
+}
+
+.hero-author {
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  color: var(--burgundy);
+}
+
+/* ===== INTRO BLOCK ===== */
+.intro-block {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(245, 233, 196, 0.04) 100%);
+  border-left: 3px solid var(--gold);
+  padding: 36px 44px;
+  margin-bottom: 60px;
+  position: relative;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(2px);
+}
+
+.intro-block::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 30px;
+  font-size: 80px;
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.intro-block p {
+  font-size: 19px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+}
+.intro-block p:last-child { margin-bottom: 0; }
+
+.intro-verse {
+  font-style: italic;
+  color: var(--gold);
+  font-size: 18px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ===== BUY BLOCK ===== */
+.buy-block {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(245, 233, 196, 0.05) 100%);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 44px 48px;
+  margin-bottom: 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.buy-block::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.buy-content { position: relative; z-index: 2; }
+.buy-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.buy-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 44px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.buy-title .accent { color: var(--gold); font-style: italic; }
+.buy-text {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 520px;
+  margin: 0 auto 28px;
+}
+.btn-buy {
+  background: var(--gold);
+  color: var(--midnight-3);
+  font-weight: 700;
+  border-radius: 4px;
+}
+.btn-buy:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+}
+
+
+/* ===== INDEX ===== */
+.section-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-title .number {
+  font-family: 'Caveat', cursive;
+  color: var(--gold);
+  font-size: 38px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.section-title h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.section-title .subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.index-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-bottom: 80px;
+  background: rgba(245, 233, 196, 0.04);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--rule);
+  backdrop-filter: blur(4px);
+}
+
+.index-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  padding: 22px 32px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--rule-soft);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.index-item:last-child { border-bottom: none; }
+
+.index-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.index-item:hover::before { transform: translateX(0); }
+.index-item:hover { padding-left: 40px; }
+.index-item:hover .index-arrow { transform: translateX(8px); color: var(--gold-light); }
+
+.index-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 36px;
+  color: var(--gold);
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+
+.index-content { position: relative; z-index: 1; }
+
+.index-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.index-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.index-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.index-status {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+.index-status.completed { color: var(--sage); opacity: 1; font-weight: 600; }
+.index-status.in-progress { color: var(--gold-deep); opacity: 1; font-weight: 600; }
+
+.index-arrow {
+  color: var(--gold);
+  font-size: 22px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* ===== STATS BAR ===== */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin-bottom: 60px;
+  border: 1px solid var(--rule);
+}
+
+.stat {
+  background: rgba(245, 233, 196, 0.04);
+  padding: 28px 16px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-number .small {
+  font-size: 24px;
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+/* ===== QUIZ VIEWS ===== */
+.quiz-view { display: none; }
+.quiz-view.active { display: block; animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.index-view.hidden { display: none; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.quiz-header {
+  margin-bottom: 60px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  text-decoration: none;
+  margin-bottom: 32px;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: 500;
+}
+.back-link:hover { color: var(--burgundy); transform: translateX(-4px); }
+
+.quiz-header .number {
+  font-family: 'Caveat', cursive;
+  color: var(--gold);
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.quiz-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 56px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1.05;
+}
+
+.quiz-header .subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--burgundy);
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.quiz-progress-bar {
+  margin-top: 36px;
+  height: 2px;
+  background: var(--paper-deep);
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--gold-deep));
+  width: 0%;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+.quiz-progress-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+/* ===== QUESTIONS ===== */
+.question {
+  background: rgba(245, 233, 196, 0.05);
+  border: 1px solid var(--rule);
+  padding: 40px 44px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow);
+  position: relative;
+  transition: box-shadow 0.4s, transform 0.4s;
+  backdrop-filter: blur(4px);
+}
+
+.question:hover { box-shadow: var(--shadow-lift); }
+
+.question.answered { border-left: 3px solid var(--gold); }
+
+.question-num {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  background: var(--gold);
+  color: var(--midnight-3);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  padding: 8px 18px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.question-text {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-top: 24px;
+  margin-bottom: 28px;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+
+.question-verse {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 14px;
+  display: block;
+  margin-top: 8px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.options { display: flex; flex-direction: column; gap: 10px; }
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 22px;
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(13, 37, 56, 0.4);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  position: relative;
+}
+
+.option:hover {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.08);
+  transform: translateX(4px);
+}
+
+.option-marker {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  background: rgba(13, 37, 56, 0.6);
+  border: 1px solid var(--rule);
+  padding: 4px 10px;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+
+.option.selected {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.12);
+  border-left-width: 3px;
+  color: var(--ink);
+}
+
+.option.selected .option-marker {
+  background: var(--gold);
+  color: var(--midnight-3);
+  border-color: var(--gold);
+}
+
+.option-text { flex: 1; padding-top: 1px; }
+
+/* ===== REFLECTION TEXTAREA ===== */
+.reflection-area {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--rule);
+}
+
+.reflection-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 500;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.reflection-area textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 16px 20px;
+  border: 1px solid var(--rule);
+  background: rgba(13, 37, 56, 0.4);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: var(--ink);
+  resize: vertical;
+  font-style: italic;
+  transition: all 0.3s;
+}
+
+.reflection-area textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.reflection-area textarea::placeholder {
+  color: var(--gold);
+  opacity: 0.45;
+}
+
+/* ===== ACTIONS ===== */
+.quiz-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 18px 40px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--midnight-3);
+  font-weight: 600;
+}
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+}
+.btn-secondary:hover {
+  background: rgba(212, 175, 55, 0.08);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+/* ===== RESULT ===== */
+.quiz-result {
+  display: none;
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, var(--paper-warm) 0%, white 100%);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-lift);
+  margin-top: 40px;
+}
+
+.quiz-result.show { display: block; animation: fadeIn 0.6s; }
+
+.result-ornament {
+  margin-bottom: 24px;
+  color: var(--gold);
+  font-size: 40px;
+}
+
+.result-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  color: var(--ink);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.result-verse {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--burgundy);
+  font-size: 19px;
+  margin-bottom: 32px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+.result-message {
+  color: var(--ink-soft);
+  font-size: 18px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 80px 20px 40px;
+  border-top: 1px solid var(--rule);
+  margin-top: 80px;
+}
+
+footer .ornament {
+  color: var(--gold);
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+footer p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+footer .author {
+  font-family: 'Caveat', cursive;
+  color: var(--burgundy);
+  font-size: 24px;
+  margin-top: 12px;
+}
+
+footer .website {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-top: 24px;
+  font-weight: 500;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .container { padding: 30px 20px; }
+  .hero { padding: 40px 0 30px; }
+  .intro-block { padding: 28px 24px; }
+  .intro-block::before { left: 16px; top: -8px; font-size: 60px; }
+  .question { padding: 32px 24px 28px; }
+  .question-num { font-size: 18px; padding: 6px 14px; }
+  .question-text { font-size: 19px; margin-top: 16px; }
+  .index-item { grid-template-columns: 50px 1fr 30px; padding: 18px 20px; gap: 12px; }
+  .index-item:hover { padding-left: 24px; }
+  .index-num { font-size: 28px; }
+  .index-title { font-size: 19px; }
+  .index-status { display: none; }
+  .quiz-header h2 { font-size: 36px; }
+  .quiz-header .subtitle { font-size: 18px; }
+  .stats-bar { grid-template-columns: 1fr; }
+  .quiz-actions { flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+  .option { padding: 14px 16px; gap: 12px; font-size: 16px; }
+  .reflection-area textarea { font-size: 16px; }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  .quiz-actions, .back-link, footer { display: none; }
+  body { background: white; }
+  .question { page-break-inside: avoid; box-shadow: none; }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--paper-warm); }
+::-webkit-scrollbar-thumb { background: var(--gold); }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-deep); }
+</style>
+</head>
+
+<body>
+
+<!-- ============ INDEX VIEW ============ -->
+<div class="container index-view" id="indexView">
+
+  <header class="hero">
+    <div class="hero-eyebrow">Cuestionarios Interactivos</div>
+    <h1>Visión <span class="accent">20/20</span></h1>
+    <div class="hero-divisor">
+      <span></span>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/></svg>
+      <span></span>
+    </div>
+    <p class="hero-subtitle">Una guía de reflexión y crecimiento espiritual para cada capítulo del libro</p>
+    <p class="hero-author">— Milton Valle —</p>
+  </header>
+
+  <div class="intro-block">
+    <p>Este es tu espacio personal de reflexión. Cada cuestionario está diseñado para llevarte más allá de la lectura, hacia una transformación real en tu manera de ver, pensar y caminar con Dios.</p>
+    <p>Las respuestas que brindas se guardan automáticamente en tu navegador, así que puedes regresar cuando quieras y continuar donde lo dejaste.</p>
+    <p class="intro-verse">«Escribe la visión, y declárala en tablas, para que corra el que leyere en ella». — Habacuc 2:2</p>
+  </div>
+
+  <div class="buy-block">
+    <div class="buy-content">
+      <div class="buy-eyebrow">¿Aún no tienes el libro?</div>
+      <h3 class="buy-title">Visión <span class="accent">20/20</span></h3>
+      <p class="buy-text">Estos cuestionarios acompañan la lectura del libro. Consíguelo en Amazon y vive la experiencia completa, capítulo por capítulo.</p>
+      <a href="https://a.co/d/019eCb3U" target="_blank" rel="noopener" class="btn btn-buy">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="flex-shrink:0"><path d="M12 2L9.5 8.5 3 9l5 4.5L6.5 20 12 16l5.5 4L16 13.5 21 9l-6.5-.5z"/></svg>
+        Comprar en Amazon
+      </a>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <span class="number">~ ~ ~</span>
+    <h2>Tu Recorrido</h2>
+    <span class="subtitle">14 secciones · 168 preguntas</span>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-number" id="statCompleted">0</div>
+      <div class="stat-label">Completados</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number" id="statProgress">0<span class="small">/14</span></div>
+      <div class="stat-label">Progreso</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number" id="statAnswered">0</div>
+      <div class="stat-label">Respuestas</div>
+    </div>
+  </div>
+
+  <nav class="index-grid" id="indexGrid"></nav>
+
+  <footer>
+    <div class="ornament">✦</div>
+    <p>«Es tiempo de ver. Es tiempo de avanzar.</p>
+    <p>Es tiempo de levantar un ejército con visión 20/20»</p>
+    <div class="author">~ Milton Valle ~</div>
+    <div class="website">miltonvallemusic.com</div>
+  </footer>
+
+</div>
+
+<!-- ============ QUIZ VIEW ============ -->
+<div class="container quiz-view" id="quizView">
+  <button class="back-link" onclick="goToIndex()">← Volver al índice</button>
+
+  <header class="quiz-header">
+    <span class="number" id="quizSectionLabel"></span>
+    <h2 id="quizTitle"></h2>
+    <p class="subtitle" id="quizSubtitle"></p>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
+    <div class="quiz-progress-text" id="quizProgressText">0 de 12 respondidas</div>
+  </header>
+
+  <div id="questionsContainer"></div>
+
+  <div class="quiz-actions">
+    <button class="btn btn-secondary" onclick="resetQuiz()">↺ Reiniciar respuestas</button>
+    <button class="btn btn-primary" onclick="completeQuiz()">Marcar como completado ✓</button>
+  </div>
+
+  <div class="quiz-result" id="quizResult">
+    <div class="result-ornament">❦</div>
+    <h3 class="result-title">¡Cuestionario completado!</h3>
+    <p class="result-verse" id="resultVerse"></p>
+    <p class="result-message">Que la Palabra siga formando tu visión y guiando tu propósito. Continúa con el siguiente capítulo cuando estés listo.</p>
+    <button class="btn btn-primary" onclick="goToIndex()">Volver al índice →</button>
+  </div>
+
+  <footer>
+    <div class="ornament">✦</div>
+    <div class="website">Visión 20/20 · miltonvallemusic.com</div>
+  </footer>
+</div>
+
+<script>
+// ===========================================================
+// DATA: 14 secciones × 12 preguntas = 168 preguntas
+// ===========================================================
+const sections = [
+  // ===== PRÓLOGO =====
+  {
+    id: 'prologo',
+    label: 'Prólogo',
+    title: 'Despertando la Visión',
+    subtitle: 'El llamado a escribir, declarar y correr',
+    verse: '«Escribe la visión, y declárala en tablas». — Habacuc 2:2',
+    questions: [
+      { q: '¿Qué significa para ti tener "visión 20/20" en el área espiritual?', type: 'multi', options: [
+        'Ver la vida y los procesos desde la perspectiva de Dios',
+        'Solo ver lo bueno y positivo en mi vida',
+        'Predecir el futuro espiritualmente',
+        'Tener éxito en todo lo que emprendo']
+      },
+      { q: 'Habacuc recibe una instrucción clara: escribir, declarar y correr. ¿En cuál de estos pasos te encuentras hoy?', type: 'multi', options: [
+        'Aún estoy escuchando lo que Dios quiere decirme',
+        'Ya recibí la visión, pero no la he escrito',
+        'La he escrito, pero me cuesta declararla',
+        'Estoy corriendo con ella']
+      },
+      { q: 'Cuando la visión "tarda", la mayoría se desanima. Según el prólogo, ¿qué representa esa espera?', type: 'multi', options: [
+        'Una oportunidad para cambiar de plan',
+        'Preparación y formación de carácter',
+        'Un castigo o disciplina',
+        'Una señal de que no era de Dios']
+      },
+      { q: 'Reflexiona: ¿Qué visión específica ha puesto Dios en tu corazón que aún no se ha manifestado?', type: 'reflexion' },
+      { q: '¿Qué te ha distraído de correr con la visión que Dios te ha dado?', type: 'multi', options: [
+        'La falta de claridad sobre los siguientes pasos',
+        'El temor al fracaso',
+        'La comodidad y la rutina',
+        'Las críticas y opiniones de otros']
+      },
+      { q: 'El prólogo distingue entre espectadores pasivos y portadores activos del propósito. ¿Cuál has sido en los últimos meses?', type: 'multi', options: [
+        'Aún no estoy seguro',
+        'Espectador pasivo',
+        'Portador en formación',
+        'Portador activo']
+      },
+      { q: 'Reflexiona: Si tuvieras que "escribir tu visión en tablas" ahora mismo, en una sola frase, ¿qué escribirías?', type: 'reflexion' },
+      { q: '¿Qué significa para ti que la visión "no miente, aunque tarde"?', type: 'multi', options: [
+        'Que Dios siempre cumple lo que dice, en su tiempo',
+        'Que no debo dudar nunca',
+        'Que todo lo que pienso se cumplirá',
+        'Que no necesito esperar']
+      },
+      { q: 'Si Dios está derramando Su Espíritu sobre toda carne para esta generación, ¿qué papel sientes que Él te ha asignado?', type: 'multi', options: [
+        'Aún estoy descubriéndolo',
+        'Ver y movilizarme con propósito',
+        'Soñar y trazar dirección',
+        'Profetizar y declarar Su Palabra']
+      },
+      { q: 'Reflexiona: ¿Qué obstáculo interno necesitas vencer para abrazar la visión que Dios te ha dado?', type: 'reflexion' },
+      { q: 'En tus propias palabras, ¿qué diferencia hay entre tener ojos y tener visión?', type: 'reflexion' },
+      { q: '¿Cuál es el compromiso que asumes después de leer este prólogo?', type: 'multi', options: [
+        'Buscar a Dios para recibir mayor claridad',
+        'Escribir y declarar lo que Dios ya me ha mostrado',
+        'Comenzar a correr con la visión sin esperar más',
+        'Acompañar a otros a caminar en su visión']
+      }
+    ]
+  },
+
+  // ===== CAPÍTULO 1 =====
+  {
+    id: 'cap1',
+    label: 'Capítulo 1',
+    title: 'Recobrando la Visión',
+    subtitle: 'Bartimeo y la decisión de no seguir al borde del camino',
+    verse: '«¡Hijo de David, ten misericordia de mí!». — Marcos 10:47',
+    questions: [
+      { q: 'Bartimeo estaba "al borde del camino, mendigando". ¿En qué área de tu vida te has sentado cómodamente cuando deberías estar caminando?', type: 'reflexion' },
+      { q: 'El primer paso de Bartimeo fue aprovechar la oportunidad cuando Jesús pasó. ¿Qué oportunidad estás dejando pasar hoy?', type: 'multi', options: [
+        'Un proceso de discipulado o formación',
+        'Una invitación a servir o liderar',
+        'Una relación que necesito sanar',
+        'Un proyecto o sueño que he postergado']
+      },
+      { q: 'Bartimeo no pidió "limosna", pidió "misericordia". ¿Qué le estás pidiendo a Dios actualmente: lo temporal o lo transformador?', type: 'multi', options: [
+        'Lo transformador (cambio profundo)',
+        'Aún no sé qué pedirle',
+        'Lo temporal (provisión inmediata)',
+        'Ambos por igual']
+      },
+      { q: 'Reflexiona: ¿Qué "ruido" o "multitud" en tu vida ha intentado callar tu clamor a Dios?', type: 'reflexion' },
+      { q: 'Cuando Jesús lo llamó, Bartimeo "arrojó su capa". ¿Qué representa para ti esa "capa" que necesitas soltar?', type: 'multi', options: [
+        'Relaciones que no edifican',
+        'Una zona de comodidad espiritual',
+        'Una identidad antigua que ya no me corresponde',
+        'Hábitos que me limitan']
+      },
+      { q: '¿Cuál de estas frases describe mejor tu condición actual?', type: 'multi', options: [
+        'Tengo ojos pero no tengo visión',
+        'Veo claramente y estoy avanzando',
+        'Estoy recobrando la visión poco a poco',
+        'Necesito que Dios sane completamente mi visión']
+      },
+      { q: 'Reflexiona: ¿Qué tipo de "ceguera" espiritual has experimentado en tu vida (orgullo, amargura, miedo, religiosidad, etc.)?', type: 'reflexion' },
+      { q: 'Bartimeo persistió aunque muchos le reprendían. ¿Qué te dice eso sobre la importancia de la persistencia en oración?', type: 'multi', options: [
+        'Que debo orar hasta ver respuesta',
+        'Que no debo permitir que otros definan mi clamor',
+        'Que la oposición confirma que voy en la dirección correcta',
+        'Todas las anteriores']
+      },
+      { q: 'Recuperar la visión termina con seguir a Jesús "en el camino". ¿Qué compromiso de discipulado necesitas asumir?', type: 'multi', options: [
+        'Tener un mentor espiritual',
+        'Congregarme fielmente',
+        'Servir activamente en la iglesia',
+        'Ser parte de un grupo de formación']
+      },
+      { q: 'Reflexiona: Si Jesús pasara hoy junto a ti y te preguntara: "¿qué quieres que te haga?", ¿qué responderías?', type: 'reflexion' },
+      { q: '¿Qué decisión concreta tomarás esta semana para "levantarte del borde del camino"?', type: 'reflexion' },
+      { q: '¿Cómo medirás que estás recobrando la visión 20/20 en los próximos meses?', type: 'multi', options: [
+        'Por el cambio en mis decisiones diarias',
+        'Por mi crecimiento en la Palabra',
+        'Por el fruto en mi entorno',
+        'Por la dirección clara que percibo']
+      }
+    ]
+  },
+
+  // ===== CAPÍTULO 2 =====
+  {
+    id: 'cap2',
+    label: 'Capítulo 2',
+    title: 'Claridad Espiritual',
+    subtitle: 'El ciego de Betsaida y la restauración progresiva',
+    verse: '«Veo los hombres como árboles, pero los veo que andan». — Marcos 8:24',
+    questions: [
+      { q: 'Betsaida significa "casa de fruto", pero el ciego no podía verlo. ¿Estás en un ambiente de fruto sin poder reconocerlo?', type: 'multi', options: [
+        'No estoy seguro de estar en un ambiente de fruto',
+        'Sí, lo reconozco pero a veces lo paso por alto',
+        'A veces siento que estoy en escasez aunque hay fruto',
+        'Veo el fruto y lo celebro']
+      },
+      { q: 'Reflexiona: ¿Qué fruto está produciendo Dios en tu vida ahora mismo que tal vez has minimizado?', type: 'reflexion' },
+      { q: 'Jesús sacó al ciego de la aldea antes de sanarlo. ¿Qué "aldea" (ambiente) necesitas dejar para ver con claridad?', type: 'multi', options: [
+        'Redes sociales o medios que distorsionan mi fe',
+        'Hábitos mentales de derrota o queja',
+        'Conversaciones tóxicas o chismosas',
+        'Relaciones que me desenfocan del propósito']
+      },
+      { q: '¿Con quiénes estás caminando hoy? ¿Te están afilando o desgastando?', type: 'multi', options: [
+        'Me desgastan: drenan mi fe',
+        'Me afilan: me edifican y me desafían',
+        'Camino mayormente solo',
+        'Una mezcla de ambos']
+      },
+      { q: 'Reflexiona: Menciona el nombre de tres personas cuya influencia espiritual quieres invitar más a tu vida.', type: 'reflexion' },
+      { q: 'La restauración del ciego fue progresiva. ¿Has esperado claridad instantánea cuando Dios te está formando paso a paso?', type: 'multi', options: [
+        'Entiendo y descanso en el ritmo de Dios',
+        'Sí, me frustro con el proceso',
+        'Nunca lo había visto así',
+        'Estoy aprendiendo a abrazar el proceso']
+      },
+      { q: '¿En qué área sientes que ves "como árboles" (parcialmente) y necesitas un segundo toque de Dios?', type: 'reflexion' },
+      { q: 'La claridad espiritual se afina con discipulado, mentoría y formación. ¿Qué proceso de formación estás priorizando?', type: 'multi', options: [
+        'Estudio personal de la Biblia',
+        'Aún no estoy en un proceso intencional',
+        'Discipulado con un líder',
+        'Mentoría espiritual']
+      },
+      { q: 'Reflexiona: ¿Cuál es el último ajuste que Dios hizo en tu manera de ver algo? ¿Cómo cambió tu vida?', type: 'reflexion' },
+      { q: '¿Qué filtro estableces hoy para proteger tu visión 20/20?', type: 'multi', options: [
+        'Selecciono lo que escucho (música, podcasts, sermones)',
+        'Cuido con quién comparto tiempo de calidad',
+        'Vigilo lo que consumo en redes sociales',
+        'Protejo mis tiempos de intimidad con Dios']
+      },
+      { q: 'En una escala de 1 a 10, ¿qué tan clara está hoy tu visión espiritual?', type: 'multi', options: [
+        'Borrosa (1-3): necesito un toque urgente',
+        'Parcial (4-6): veo, pero no con precisión',
+        'Avanzada (7-8): voy en buen camino',
+        'Clara (9-10): veo con precisión sostenida']
+      },
+      { q: 'Reflexiona: ¿Qué oración elevarás a Dios para que termine de aclarar tu visión?', type: 'reflexion' }
+    ]
+  },
+
+  // ===== CAPÍTULO 3 =====
+  {
+    id: 'cap3',
+    label: 'Capítulo 3',
+    title: 'Fe Visionaria',
+    subtitle: 'Abraham y la obediencia sin mapa',
+    verse: '«Creyó en esperanza contra esperanza». — Romanos 4:18',
+    questions: [
+      { q: 'Abraham obedeció sin conocer el destino. ¿Qué te pediría Dios que dejes hoy si te dijera "vete a la tierra que te mostraré"?', type: 'reflexion' },
+      { q: 'La fe visionaria no necesita ver el final para empezar el camino. ¿Qué necesitas ver antes de obedecer?', type: 'multi', options: [
+        'Aprobación de mi familia',
+        'Garantías financieras',
+        'Solo necesito la voz de Dios',
+        'Resultados rápidos']
+      },
+      { q: 'Dios sacó a Abraham para mostrarle las estrellas. ¿De qué "tienda" o "limitación" necesitas salir para ver lo que Dios te está mostrando?', type: 'multi', options: [
+        'De mi zona de comodidad',
+        'De mi mentalidad de escasez',
+        'De mi visión limitada de mí mismo',
+        'De mis traumas del pasado']
+      },
+      { q: 'Reflexiona: ¿Qué promesa específica de Dios sobre tu vida sostiene tu fe en esta temporada?', type: 'reflexion' },
+      { q: 'Entre la promesa y el cumplimiento pasaron 25 años. ¿Cómo manejas la espera prolongada?', type: 'multi', options: [
+        'Me frustro y cuestiono a Dios',
+        'A veces me detengo, a veces avanzo',
+        'Sostengo la promesa con paciencia',
+        'Aún no he experimentado una espera larga']
+      },
+      { q: 'El caso de Ismael muestra cuando intentamos producir por estrategia lo que solo nace por promesa. ¿Has tenido un "Ismael"?', type: 'multi', options: [
+        'No estoy seguro',
+        'Estoy tentado a hacerlo ahora',
+        'He aprendido a esperar',
+        'Sí, intenté acelerar el proceso de Dios']
+      },
+      { q: 'Reflexiona: ¿Qué decisión apresurada te ha enseñado a esperar el tiempo de Dios?', type: 'reflexion' },
+      { q: 'La fe visionaria descansa en la fidelidad de Dios, no en lo visible. ¿Qué evidencia visible te está tentando a dudar?', type: 'reflexion' },
+      { q: 'Dios cambió Abram (padre) por Abraham (padre de multitudes). ¿Qué identidad nueva te ha dado Dios que aún te cuesta abrazar?', type: 'multi', options: [
+        'Sanador de generaciones',
+        'Portador de revelación',
+        'Hijo/hija amado',
+        'Líder con propósito']
+      },
+      { q: 'Reflexiona: ¿Cómo afecta tu obediencia hoy las generaciones futuras de tu familia?', type: 'reflexion' },
+      { q: 'Una fe visionaria saca al líder del centro de su propia historia. ¿En qué áreas todavía te ves a ti mismo como el centro?', type: 'multi', options: [
+        'En mi familia',
+        'En mis decisiones diarias',
+        'Estoy aprendiendo a soltar el centro',
+        'En mi ministerio o trabajo']
+      },
+      { q: '¿Qué paso de obediencia "sin mapa" sientes que Dios te está pidiendo dar esta semana?', type: 'reflexion' }
+    ]
+  },
+
+  // ===== CAPÍTULO 4 =====
+  {
+    id: 'cap4',
+    label: 'Capítulo 4',
+    title: 'Intimidad con Dios',
+    subtitle: 'Pedro, Jacobo y Juan: los formados en cercanía',
+    verse: '«Considerados como columnas». — Gálatas 2:9',
+    questions: [
+      { q: 'Jesús no solo llamó a sus discípulos a seguirlo, los llamó a "estar con Él". ¿Cómo describirías tu vida de comunión con Dios hoy?', type: 'multi', options: [
+        'Constante y profunda',
+        'Casi inexistente',
+        'Inconsistente pero genuina',
+        'Superficial y ocasional']
+      },
+      { q: 'Reflexiona: ¿Cuándo fue la última vez que sentiste verdadera cercanía con Dios? ¿Qué la facilitó?', type: 'reflexion' },
+      { q: 'Pedro, Jacobo y Juan vieron lo que otros no vieron. ¿Has sentido que tu falta de revelación se debe a tu falta de cercanía?', type: 'multi', options: [
+        'Nunca lo había pensado así',
+        'Tengo cercanía pero pido más revelación',
+        'Sí, definitivamente',
+        'A veces lo conecto']
+      },
+      { q: 'Lo sobrenatural no es espectáculo, es responsabilidad. ¿Cómo administras lo que Dios te ha mostrado en lo secreto?', type: 'multi', options: [
+        'Lo comparto con los más cercanos',
+        'Aún no sé cómo administrarlo',
+        'Lo guardo para mí solamente',
+        'Lo aplico en mi liderazgo cotidiano']
+      },
+      { q: 'Reflexiona: ¿Qué estás dispuesto a sacrificar esta semana para profundizar tu intimidad con Dios?', type: 'reflexion' },
+      { q: 'En el monte de la Transfiguración los tres íntimos vieron a Cristo en una nueva dimensión. ¿Qué nueva dimensión de Cristo necesitas conocer?', type: 'multi', options: [
+        'Cristo como Padre',
+        'Cristo como Amigo cercano',
+        'Cristo como Sanador',
+        'Cristo como Rey y Soberano']
+      },
+      { q: '¿Qué hábitos diarios cultivan tu intimidad con Dios?', type: 'multi', options: [
+        'Aún no tengo hábitos consistentes',
+        'Adoración personal',
+        'Ayuno regular',
+        'Oración y lectura bíblica diaria']
+      },
+      { q: 'Reflexiona: ¿Hay algo que está compitiendo con tu tiempo de intimidad con Dios? ¿Qué harás al respecto?', type: 'reflexion' },
+      { q: 'Pedro, Jacobo y Juan se volvieron columnas. ¿Para qué te está formando Dios en intimidad?', type: 'multi', options: [
+        'Para impactar mi entorno',
+        'Aún estoy descubriéndolo',
+        'Para sostener a mi familia espiritualmente',
+        'Para liderar a otros en madurez']
+      },
+      { q: 'La intimidad no es aislamiento, es preparación para responsabilidad espiritual. ¿Has confundido aislamiento con intimidad?', type: 'multi', options: [
+        'A veces',
+        'No, mi soledad sí es intimidad',
+        'Necesito aprender la diferencia',
+        'Sí, me retiro pero no me conecto con Dios']
+      },
+      { q: 'Reflexiona: ¿Quiénes pueden apoyarse en tu vida sin temor a ser defraudados? ¿Qué te dice eso de tu intimidad con Dios?', type: 'reflexion' },
+      { q: '¿Qué cambios concretos harás en tu rutina diaria para vivir más cerca de Jesús?', type: 'reflexion' }
+    ]
+  },
+
+  // ===== CAPÍTULO 5 =====
+  {
+    id: 'cap5',
+    label: 'Capítulo 5',
+    title: 'Obediencia a la Visión',
+    subtitle: 'Saulo de Tarso: del celo equivocado a la entrega total',
+    verse: '«¿Qué quieres que yo haga, Señor?». — Hechos 9:6',
+    questions: [
+      { q: 'Saulo era apasionado pero iba en dirección equivocada. ¿En qué área has sido sincero pero estabas equivocado?', type: 'reflexion' },
+      { q: 'El encuentro de Saulo no fue informativo, fue confrontativo. ¿Necesitas un encuentro así con Dios hoy?', type: 'multi', options: [
+        'Sí, en algún área específica',
+        'Acabo de tener uno',
+        'No siento que lo necesite ahora',
+        'Sí, urgentemente']
+      },
+      { q: 'La pregunta que define todo: "¿Qué quieres que yo haga, Señor?". ¿Cuándo fue la última vez que la hiciste con sinceridad?', type: 'multi', options: [
+        'Esta semana',
+        'No recuerdo',
+        'Hoy mismo',
+        'Hace meses']
+      },
+      { q: 'Reflexiona: ¿Qué dirección o instrucción específica de Dios estás resistiendo o postergando?', type: 'reflexion' },
+      { q: 'Saulo aprendió a someterse no solo a Dios sino también a la cobertura espiritual (Ananías). ¿Estás bajo cobertura?', type: 'multi', options: [
+        'Asisto a una iglesia pero sin cobertura formal',
+        'Sí, tengo pastor y autoridad espiritual',
+        'Trato de hacerlo todo solo',
+        'Estoy buscando cobertura']
+      },
+      { q: 'La obediencia progresiva alinea cada paso. ¿En qué área te cuesta obedecer "lo siguiente" sin tener todo claro?', type: 'multi', options: [
+        'En cambios de dirección laboral',
+        'En decisiones financieras',
+        'En relaciones',
+        'En mi ministerio o servicio']
+      },
+      { q: 'Reflexiona: ¿Qué puerta cerró Dios en tu vida que ahora ves que era para tu protección?', type: 'reflexion' },
+      { q: 'Pablo no calló su testimonio aun frente a reyes. ¿Qué te impide testificar abiertamente lo que Dios ha hecho en ti?', type: 'multi', options: [
+        'Vergüenza por mi pasado',
+        'Temor al rechazo',
+        'Nada, lo hago con libertad',
+        'Falta de claridad para articularlo']
+      },
+      { q: '"He peleado la buena batalla, he acabado la carrera, he guardado la fe". ¿Cuál de estos te cuesta más?', type: 'multi', options: [
+        'Guardar la fe en medio de la presión',
+        'Pelear la buena batalla',
+        'Los tres por igual',
+        'Acabar la carrera (terminar lo que empiezo)']
+      },
+      { q: 'Reflexiona: ¿En qué área has comenzado con pasión pero te has detenido a la mitad?', type: 'reflexion' },
+      { q: 'La obediencia no se valida por el inicio, sino por la fidelidad al final. ¿Qué necesitas para terminar fiel?', type: 'multi', options: [
+        'Un mentor que me sostenga',
+        'Recordar el llamado original',
+        'Mayor disciplina diaria',
+        'Una comunidad de apoyo']
+      },
+      { q: '¿Qué legado quieres dejar como evidencia de una vida obediente a la visión?', type: 'reflexion' }
+    ]
+  },
+
+  // ===== CAPÍTULO 6 =====
+  {
+    id: 'cap6',
+    label: 'Capítulo 6',
+    title: 'Correr con la Visión',
+    subtitle: 'El ciego de nacimiento: de mendigo a enviado',
+    verse: '«Ve a lavarte en el estanque de Siloé (que traducido es, Enviado)». — Juan 9:7',
+    questions: [
+      { q: 'Lo que parece limitación puede ser un escenario diseñado por Dios. ¿Qué "ceguera" en tu historia se está convirtiendo en plataforma?', type: 'reflexion' },
+      { q: 'La visión se activa cuando obedeces la instrucción. ¿Qué instrucción de Dios estás postergando?', type: 'multi', options: [
+        'Un paso financiero o laboral',
+        'Algo en mi ministerio',
+        'Una reconciliación pendiente',
+        'Algo en mi familia']
+      },
+      { q: 'Siloé significa "Enviado". ¿En qué te ha enviado Dios y aún no has terminado de moverte?', type: 'reflexion' },
+      { q: 'El ciego no solo recibió vista, recibió misión. ¿Has confundido tu milagro con tu llamado?', type: 'multi', options: [
+        'Sí, me detuve después del milagro',
+        'A veces lo hago',
+        'No, sigo avanzando con propósito',
+        'Aún no he tenido un milagro evidente']
+      },
+      { q: 'Reflexiona: Tu testimonio no necesita ser elaborado, necesita ser real. Cuenta brevemente lo que Dios ha hecho en tu vida.', type: 'reflexion' },
+      { q: 'El testimonio del ciego fue simple: "una cosa sé, que habiendo sido ciego, ahora veo". ¿Qué frase resume tu testimonio?', type: 'reflexion' },
+      { q: 'La oposición es parte del proceso. ¿Cómo manejas la crítica cuando avanzas con tu visión?', type: 'multi', options: [
+        'Me duele pero sigo',
+        'No me detengo, la oposición me confirma',
+        'Me afecta y me detengo',
+        'La proceso con cobertura espiritual']
+      },
+      { q: 'Lo que para los fariseos era controversia, para Jesús era manifestación. ¿Qué situación estás interpretando incorrectamente?', type: 'reflexion' },
+      { q: 'Cuando lo expulsaron de la sinagoga, Jesús lo buscó. ¿Cómo has experimentado el respaldo divino en medio del rechazo?', type: 'multi', options: [
+        'Aún espero verlo',
+        'Muy claramente',
+        'Nunca lo había considerado',
+        'Lo veo en retrospectiva']
+      },
+      { q: 'Reflexiona: Si tu vida es un mensaje vivo, ¿qué está leyendo tu entorno actualmente en ti?', type: 'reflexion' },
+      { q: 'Correr con la visión exige movimiento constante. ¿Qué te paraliza?', type: 'multi', options: [
+        'La opinión de otros',
+        'La parálisis del análisis',
+        'La perfección antes de actuar',
+        'El temor al fracaso']
+      },
+      { q: '¿Qué decisión de "movimiento" tomarás esta semana en obediencia a la visión?', type: 'reflexion' }
+    ]
+  },
+
+  // ===== CAPÍTULO 7 =====
+  {
+    id: 'cap7',
+    label: 'Capítulo 7',
+    title: 'Respeto al Manto',
+    subtitle: 'Eliseo: del arado al manto duplicado',
+    verse: '«Te ruego que una doble porción de tu espíritu sea sobre mí». — 2 Reyes 2:9',
+    questions: [
+      { q: 'Eliseo era un agricultor próspero, pero soltó todo. ¿Qué seguridad terrenal te cuesta soltar para seguir la visión de Dios?', type: 'multi', options: [
+        'Estabilidad económica',
+        'Reconocimiento social',
+        'Comodidad de mi rutina',
+        'Plan de vida que ya tenía trazado']
+      },
+      { q: 'El servicio es el lenguaje del Reino. ¿Has servido sin esperar reconocimiento o solo cuando te ven?', type: 'multi', options: [
+        'Sirvo solo cuando me reconocen',
+        'Aún estoy aprendiendo a servir',
+        'A veces lucho con eso',
+        'Sirvo sin esperar nada']
+      },
+      { q: 'Reflexiona: ¿A quién has servido fielmente como Eliseo sirvió a Elías? ¿Qué has aprendido de esa relación?', type: 'reflexion' },
+      { q: 'Gilgal representa el lugar de pacto y compromiso. ¿Estás en una relación pactual con tu cobertura espiritual o solo casual?', type: 'multi', options: [
+        'Casual: voy y vengo',
+        'Estoy buscando una cobertura',
+        'No tengo cobertura formal',
+        'Pactual: comprometido a largo plazo']
+      },
+      { q: 'Eliseo siguió a Elías hasta el cruce, no se quedó en la mitad. ¿En qué área te detuviste antes de cruzar?', type: 'reflexion' },
+      { q: 'La doble porción no es ambición, es responsabilidad. ¿Estás preparado para cargar lo que estás pidiendo a Dios?', type: 'multi', options: [
+        'Aún no sé qué pedir',
+        'Estoy en proceso de prepararme',
+        'No, debo crecer primero',
+        'Sí, he sido formado para eso']
+      },
+      { q: 'Reflexiona: ¿Qué responsabilidad estás esquivando que Dios quiere depositar sobre ti?', type: 'reflexion' },
+      { q: '"Pi-Shnayim" (פִּי שְׁנַיִם) significa "boca de dos". El primogénito recibía doble para sostener la casa. ¿Estás dispuesto a sostener?', type: 'multi', options: [
+        'Aún estoy aprendiendo a sostener',
+        'Sí, asumo el peso',
+        'No me siento capaz todavía',
+        'A veces lo evado']
+      },
+      { q: 'Honrar el manto no es competir con él. ¿Has competido con tu líder espiritual en lugar de honrarlo?', type: 'multi', options: [
+        'A veces caigo en eso',
+        'Sí, lo he hecho',
+        'Estoy aprendiendo a honrar correctamente',
+        'No, lo honro genuinamente']
+      },
+      { q: 'Reflexiona: ¿Qué ha caído en tu vida (oportunidades, mantos, asignaciones) que no has sabido recoger?', type: 'reflexion' },
+      { q: 'Eliseo hizo el doble de milagros que Elías. ¿Qué te dice eso sobre el potencial de la siguiente generación?', type: 'multi', options: [
+        'Los discípulos pueden superar a sus mentores',
+        'Honrar abre puertas mayores',
+        'La fidelidad multiplica el legado',
+        'Todas las anteriores']
+      },
+      { q: '¿Qué cambio harás en cómo honras a tu cobertura espiritual?', type: 'reflexion' }
+    ]
+  },
+
+  // ===== CAPÍTULO 8 =====
+  {
+    id: 'cap8',
+    label: 'Capítulo 8',
+    title: 'Dominio de Ambientes',
+    subtitle: 'Eliseo: gobernar lo invisible para transformar lo visible',
+    verse: '«Más son los que están con nosotros que los que están con ellos». — 2 Reyes 6:16',
+    questions: [
+      { q: 'Eliseo veía lo que el rey de Siria planeaba en secreto. ¿Cuándo Dios te ha dado revelación que evitó un problema?', type: 'reflexion' },
+      { q: 'La revelación es ventaja estratégica, no curiosidad. ¿Cómo administras lo que Dios te muestra?', type: 'multi', options: [
+        'Lo guardo en oración',
+        'Lo uso para gobernar y proteger',
+        'Aún no recibo revelación clara',
+        'A veces lo divulgo sin discernimiento']
+      },
+      { q: 'Eliseo era más reconocido en el territorio enemigo que en su propia casa. ¿Te has frustrado por la falta de reconocimiento local?', type: 'multi', options: [
+        'A veces me afecta',
+        'Tengo reconocimiento donde estoy',
+        'Sí, mucho',
+        'He aprendido a no depender de eso']
+      },
+      { q: 'Reflexiona: ¿Cómo afecta tu identidad espiritual la falta de honra en tu entorno cercano?', type: 'reflexion' },
+      { q: 'El siervo de Eliseo veía solo lo natural. ¿En qué situación necesitas que Dios "abra tus ojos" para ver lo espiritual?', type: 'multi', options: [
+        'En un conflicto laboral',
+        'En una situación ministerial',
+        'En una batalla familiar',
+        'En una crisis financiera']
+      },
+      { q: '"Más son los que están con nosotros". ¿Vives consciente del respaldo espiritual o caminas en temor?', type: 'multi', options: [
+        'A veces lo recuerdo, a veces no',
+        'Estoy aprendiendo a vivir desde la fe',
+        'Vivo consciente del respaldo divino',
+        'Tiendo a vivir en temor']
+      },
+      { q: 'Reflexiona: ¿Qué temor específico necesitas confrontar con la verdad de "más son los que están contigo"?', type: 'reflexion' },
+      { q: 'Eliseo no entró en pánico, entró en autoridad. ¿Cuál es tu reacción típica ante una crisis?', type: 'multi', options: [
+        'Análisis sin oración',
+        'Pánico y reacción emocional',
+        'Oración con autoridad espiritual',
+        'Oración pero sin autoridad']
+      },
+      { q: 'La oración no es reacción, es gobierno. ¿Has visto tu oración como dirección o como emergencia?', type: 'multi', options: [
+        'A veces como dirección',
+        'Casi siempre como emergencia',
+        'Oro como gobierno habitualmente',
+        'Estoy creciendo en la oración de gobierno']
+      },
+      { q: 'Reflexiona: ¿Qué ambiente (familia, trabajo, iglesia) necesita ser transformado a través de tu oración con autoridad?', type: 'reflexion' },
+      { q: 'Eliseo bendijo a los enemigos en lugar de destruirlos. ¿Has confundido victoria espiritual con destruir al adversario?', type: 'multi', options: [
+        'A veces',
+        'He aprendido el camino del Reino',
+        'Estoy en proceso de aprender',
+        'Sí, pienso en términos de destrucción']
+      },
+      { q: '¿Qué atmósfera espiritual estableces donde llegas? ¿Qué quieres establecer a partir de hoy?', type: 'reflexion' }
+    ]
+  },
+
+  // ===== CAPÍTULO 9 =====
+  {
+    id: 'cap9',
+    label: 'Capítulo 9',
+    title: 'Visión de Conquista',
+    subtitle: 'Josué: de servidor a conquistador',
+    verse: '«Como pan los comeremos; con nosotros está Jehová». — Números 14:9',
+    questions: [
+      { q: 'Diez vieron gigantes; Josué y Caleb vieron oportunidad. ¿Cuál es tu lente predeterminado al enfrentar un desafío?', type: 'multi', options: [
+        'Estoy aprendiendo a cambiar mi perspectiva',
+        'Veo gigantes (problemas)',
+        'Veo oportunidades de fe',
+        'Depende de mi estado emocional']
+      },
+      { q: 'La conquista comienza en la interpretación del territorio. ¿Cómo estás interpretando tu temporada actual?', type: 'reflexion' },
+      { q: '¿Qué declaración estás haciendo con tu boca: derrota o fe?', type: 'multi', options: [
+        'Mayormente fe',
+        'Mayormente derrota',
+        'Solo declaro lo que Dios dice',
+        'Una mezcla']
+      },
+      { q: 'Reflexiona: Escribe una declaración de fe sobre el desafío que enfrentas hoy.', type: 'reflexion' },
+      { q: 'Josué peleó mientras Moisés intercedía. ¿Cuál es tu rol natural: el del que pelea o el del que intercede?', type: 'multi', options: [
+        'Peleo en el campo',
+        'Estoy descubriendo mi rol',
+        'Intercedo desde la cumbre',
+        'Hago ambos']
+      },
+      { q: 'La fe no elimina la acción, la impulsa. ¿En qué área has esperado pasivamente cuando Dios te llama a actuar?', type: 'reflexion' },
+      { q: 'Aarón y Hur sostuvieron las manos de Moisés. ¿Quiénes son tus "Aarón y Hur" hoy?', type: 'multi', options: [
+        'Equipo de oración',
+        'Familia inmediata',
+        'Necesito identificarlos',
+        'Mentores espirituales']
+      },
+      { q: 'Reflexiona: ¿A quién estás sosteniendo tú como Aarón y Hur sostuvieron a Moisés?', type: 'reflexion' },
+      { q: 'Josué fue fiel por 40 años antes de liderar. ¿Estás dispuesto a la fidelidad larga sin reconocimiento?', type: 'multi', options: [
+        'Estoy aprendiendo paciencia',
+        'Sí, pero me cuesta',
+        'Necesito reconocimiento periódicamente',
+        'Sí, sin importar el tiempo']
+      },
+      { q: 'Cada batalla ganada con fe deja huella eterna. ¿Qué batalla has ganado que Dios quiere registrar?', type: 'reflexion' },
+      { q: 'Josué terminó completamente con Amalec. ¿Qué batalla has dejado a medias en tu vida?', type: 'multi', options: [
+        'Un proceso de sanidad emocional',
+        'Una relación tóxica',
+        'Un proyecto de propósito',
+        'Una adicción o hábito']
+      },
+      { q: '¿Qué legado de conquista quieres dejar para tu familia y comunidad?', type: 'reflexion' }
+    ]
+  },
+
+  // ===== CAPÍTULO 10 =====
+  {
+    id: 'cap10',
+    label: 'Capítulo 10',
+    title: 'Visión de Empoderamiento',
+    subtitle: 'Bernabé: el que vio lo que otros no veían',
+    verse: '«Hijo de consolación». — Hechos 4:36',
+    questions: [
+      { q: 'Bernabé apareció primero por su generosidad, no por su predicación. ¿Tu reputación se basa en lo que das o en lo que recibes?', type: 'multi', options: [
+        'En una mezcla',
+        'No estoy seguro',
+        'En lo que doy',
+        'En lo que recibo']
+      },
+      { q: 'Reflexiona: ¿Qué recurso (tiempo, dinero, conocimiento, influencia) sientes que Dios te pide soltar para empoderar a otros?', type: 'reflexion' },
+      { q: 'Bernabé creyó en Pablo cuando todos dudaban. ¿En quién necesitas creer hoy aunque otros lo descarten?', type: 'reflexion' },
+      { q: 'Empoderar a otros significa poner tu agenda a un lado. ¿Lo estás haciendo?', type: 'multi', options: [
+        'Sí, regularmente',
+        'A veces, con esfuerzo',
+        'Me cuesta mucho',
+        'No lo había considerado']
+      },
+      { q: 'Reflexiona: Menciona el nombre de tres personas en quienes podrías invertir intencionalmente este año.', type: 'reflexion' },
+      { q: 'Un líder sin generosidad administra; uno generoso desata. ¿Cuál eres tú?', type: 'multi', options: [
+        'Administrador (protejo lo que tengo)',
+        'Generoso (desato lo que recibo)',
+        'En transición',
+        'Depende del área']
+      },
+      { q: 'Bernabé caminó 800 km por su discípulo. ¿Qué distancia estás dispuesto a recorrer por alguien que Dios te ha encomendado?', type: 'multi', options: [
+        'La que sea necesaria',
+        'Hasta donde me sea conveniente',
+        'Me cuesta sacrificarme por otros',
+        'Estoy aprendiendo a hacerlo']
+      },
+      { q: 'Reflexiona: ¿Qué oportunidad has tenido de "abrir puerta" a alguien que ha sido rechazado o pasado por alto?', type: 'reflexion' },
+      { q: 'Empoderar verdadero no crea dependencia, crea expansión. ¿Tus discípulos pueden funcionar sin ti?', type: 'multi', options: [
+        'Aún no he discipulado',
+        'Sí, los he formado para eso',
+        'Algunos sí, otros no',
+        'Dependen demasiado de mí']
+      },
+      { q: 'Reflexiona: ¿Cómo se mide tu éxito en el liderazgo: por cuántos te siguen o por cuántos has lanzado?', type: 'reflexion' },
+      { q: 'En Antioquía se les llamó "cristianos" por primera vez. ¿Qué legado lingüístico/cultural quieres dejar en tu entorno?', type: 'multi', options: [
+        'Una cultura de fe y movimiento',
+        'Una cultura de empoderamiento',
+        'Una cultura de servicio y honra',
+        'Una cultura de excelencia espiritual']
+      },
+      { q: '¿Qué decisión concreta tomarás esta semana para empoderar a alguien?', type: 'reflexion' }
+    ]
+  },
+
+  // ===== CAPÍTULO 11 =====
+  {
+    id: 'cap11',
+    label: 'Capítulo 11',
+    title: 'Visión de Multitudes',
+    subtitle: 'Ezequiel: del valle de huesos al ejército',
+    verse: '«¿Vivirán estos huesos? Y dije: Señor Jehová, tú lo sabes». — Ezequiel 37:3',
+    questions: [
+      { q: 'Donde Ezequiel vio muerte, Dios vio un ejército. ¿Qué situación "muerta" en tu vida Dios quiere reinterpretar?', type: 'reflexion' },
+      { q: 'La respuesta de Ezequiel fue "Tú lo sabes". ¿Has aprendido a soltar el control y rendir tu interpretación a Dios?', type: 'multi', options: [
+        'Solo en crisis',
+        'Estoy aprendiendo',
+        'Sí, lo hago habitualmente',
+        'Lucho con eso']
+      },
+      { q: '¿En qué área has dado un caso por "cerrado" que Dios aún no ha cerrado?', type: 'multi', options: [
+        'Una promesa ministerial',
+        'Una sanidad personal',
+        'Una relación familiar',
+        'Una situación financiera']
+      },
+      { q: 'Reflexiona: ¿Qué declararás profeticamente sobre algo que parece terminado en tu vida?', type: 'reflexion' },
+      { q: 'Ezequiel debía hablarle a los huesos. ¿A quién o a qué situación necesitas hablarle con autoridad profética?', type: 'reflexion' },
+      { q: 'La palabra alineada con Dios tiene poder creativo. ¿Tus palabras crean vida o describen muerte?', type: 'multi', options: [
+        'Estoy ajustando mi lenguaje',
+        'Mayormente describen lo que veo',
+        'Una mezcla',
+        'Crean vida en lo que toco']
+      },
+      { q: 'Hubo movimiento, pero faltaba espíritu. ¿En qué área tienes "estructura" pero te falta vida del Espíritu?', type: 'multi', options: [
+        'En mis relaciones',
+        'En mi vida espiritual personal',
+        'En mi familia',
+        'En mi ministerio']
+      },
+      { q: 'Reflexiona: Muchos confunden avance con cumplimiento. ¿Te has detenido en una etapa intermedia?', type: 'reflexion' },
+      { q: 'Cada etapa tiene propósito. ¿Estás dispuesto a sostener el proceso aunque aún no veas plenitud?', type: 'multi', options: [
+        'Me cuesta sostener procesos largos',
+        'Quiero resultados rápidos',
+        'A veces me frustro',
+        'Sí, totalmente']
+      },
+      { q: 'El propósito de Dios no termina contigo, sino con un ejército. ¿A cuántos estás formando ahora mismo?', type: 'multi', options: [
+        'A 1-3 personas',
+        'A 4-10 personas',
+        'A más de 10',
+        'A nadie aún']
+      },
+      { q: 'Reflexiona: ¿Qué "ejército" sueña Dios levantar a través de tu vida en los próximos 10 años?', type: 'reflexion' },
+      { q: '¿Qué paso concreto darás esta semana para profetizar vida sobre tu valle?', type: 'reflexion' }
+    ]
+  },
+
+  // ===== CAPÍTULO 12 =====
+  {
+    id: 'cap12',
+    label: 'Capítulo 12',
+    title: 'Visión de Legado',
+    subtitle: 'Samuel: de la sensibilidad al legado generacional',
+    verse: '«Habla, Jehová, porque tu siervo oye». — 1 Samuel 3:10',
+    questions: [
+      { q: 'Samuel aprendió a oír antes de ver. ¿Cuán afinado está tu oído espiritual hoy?', type: 'multi', options: [
+        'Muy afinado, escucho con claridad',
+        'Estoy aprendiendo a escuchar',
+        'A veces escucho, a veces dudo',
+        'Está apagado o confuso']
+      },
+      { q: 'En tiempos de escasez espiritual, Samuel se afinó. ¿Cómo respondes tú cuando hay sequedad espiritual?', type: 'multi', options: [
+        'Lucho por permanecer cerca',
+        'Aprovecho para profundizar',
+        'No he experimentado sequedad espiritual',
+        'Me distraigo o me enfrío']
+      },
+      { q: 'Reflexiona: ¿Qué disciplina espiritual necesitas reactivar para afinar tu oído como Samuel?', type: 'reflexion' },
+      { q: 'Samuel tuvo que ungir un rey que humanamente era una mala decisión. ¿Has confundido tu opinión con la voluntad de Dios?', type: 'multi', options: [
+        'Aún estoy aprendiendo a discernir',
+        'A veces',
+        'Pido confirmación antes de decidir',
+        'Sí, lo he hecho']
+      },
+      { q: 'No todo proceso correcto se siente bien. ¿En qué proceso incómodo Dios te está formando ahora?', type: 'reflexion' },
+      { q: 'Samuel se dejó corregir cuando se equivocó con Eliab. ¿Aceptas la corrección de Dios cuando te equivocas?', type: 'multi', options: [
+        'Sí, con humildad',
+        'Rara vez me equivoco',
+        'Me cuesta pero lo acepto',
+        'Me defiendo primero']
+      },
+      { q: 'Reflexiona: ¿Qué criterio humano necesitas que Dios rompa para ver con discernimiento espiritual?', type: 'reflexion' },
+      { q: 'David no parecía candidato pero tenía el corazón. ¿A quién has descartado por su apariencia que Dios ha escogido?', type: 'reflexion' },
+      { q: 'Un líder con visión 20/20 elige por revelación, no por impresión. ¿Cómo eliges a quienes promueves o discipulas?', type: 'multi', options: [
+        'Por relación cercana',
+        'Una mezcla, en proceso de aprender',
+        'Por carisma o talento visible',
+        'Por discernimiento espiritual']
+      },
+      { q: 'Samuel fue fiel desde la niñez hasta la vejez. ¿Qué decisiones hoy garantizarán tu fidelidad hasta el final?', type: 'reflexion' },
+      { q: 'El legado se construye en lo cotidiano, no en momentos cumbre. ¿Qué hábito diario está construyendo tu legado?', type: 'multi', options: [
+        'Mi tiempo diario con Dios',
+        'No tengo un hábito definido aún',
+        'Mi servicio constante',
+        'Mi inversión en otros']
+      },
+      { q: 'Reflexiona: Si murieras hoy, ¿qué dirían tus hijos espirituales (biológicos o no) sobre tu vida?', type: 'reflexion' }
+    ]
+  },
+
+  // ===== EPÍLOGO =====
+  {
+    id: 'epilogo',
+    label: 'Epílogo',
+    title: 'Levantando un Ejército',
+    subtitle: 'El derramamiento sobre toda carne',
+    verse: '«Profetizarán vuestros hijos y vuestras hijas». — Joel 2:28',
+    questions: [
+      { q: 'Después de leer todo el libro, ¿qué capítulo te marcó más profundamente? ¿Por qué?', type: 'reflexion' },
+      { q: 'El derramamiento es para "toda carne". ¿Has limitado lo que Dios quiere hacer en ti basado en tu edad, género o trasfondo?', type: 'multi', options: [
+        'A veces',
+        'He superado eso',
+        'Nunca lo había considerado',
+        'Sí, frecuentemente']
+      },
+      { q: 'Reflexiona: ¿En cuál de los tres movimientos te identificas más: profetizar, soñar o ver visiones?', type: 'reflexion' },
+      { q: 'Hijos e hijas profetizan. ¿Estás declarando lo que Dios te muestra o callándote por temor?', type: 'multi', options: [
+        'Hablo solo con cercanos',
+        'Me callo con frecuencia',
+        'Estoy aprendiendo a hablar',
+        'Declaro con valentía']
+      },
+      { q: 'Ancianos sueñan sueños. Si tienes más de 40 años, ¿estás soñando o solo recordando?', type: 'multi', options: [
+        'Necesito que Dios reactive mis sueños',
+        'Estoy soñando con dirección profética',
+        'Más recordando que soñando',
+        'Tengo menos de 40 pero quiero soñar']
+      },
+      { q: 'Jóvenes ven visiones. Si eres joven (o tienes jóvenes a tu alrededor), ¿estás caminando con visión o solo con impulso?', type: 'multi', options: [
+        'Acompaño a jóvenes en este proceso',
+        'Estoy en transición',
+        'Más con impulso que con visión',
+        'Camino con visión clara']
+      },
+      { q: 'Reflexiona: ¿Qué generación necesitas alcanzar específicamente con tu visión 20/20?', type: 'reflexion' },
+      { q: 'La cosecha "ya está aquí". ¿Vives como obrero activo o como espectador esperando?', type: 'multi', options: [
+        'Estoy entrando en mi rol de obrero',
+        'A veces obrero, a veces espectador',
+        'Tiendo a ser espectador',
+        'Soy obrero activo']
+      },
+      { q: 'Reflexiona: ¿Qué obstáculo interno (temor, comparación, comodidad) te ha mantenido como espectador?', type: 'reflexion' },
+      { q: 'Después de los 12 capítulos, ¿qué área de tu visión 20/20 está más madura y cuál necesita crecer?', type: 'reflexion' },
+      { q: '¿Cuál es el paso de obediencia más concreto que tomarás en los próximos 30 días?', type: 'reflexion' },
+      { q: 'Si tuvieras que escribir tu propia "visión 20/20" en una sola oración para los próximos 5 años, ¿cuál sería?', type: 'reflexion' }
+    ]
+  }
+];
+
+// ===========================================================
+// STATE MANAGEMENT
+// ===========================================================
+const STORAGE_KEY = 'vision2020_progress_v1';
+
+function loadProgress() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch { return {}; }
+}
+
+function saveProgress(progress) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  } catch (e) {
+    console.warn('No se pudo guardar el progreso', e);
+  }
+}
+
+let progress = loadProgress();
+let currentSectionId = null;
+
+// ===========================================================
+// INDEX RENDERING
+// ===========================================================
+function renderIndex() {
+  const grid = document.getElementById('indexGrid');
+  grid.innerHTML = '';
+
+  sections.forEach((section, idx) => {
+    const sectionProgress = progress[section.id] || { answers: {}, completed: false };
+    const answeredCount = Object.values(sectionProgress.answers || {}).filter(a => a && (a.selected !== undefined || (a.text && a.text.trim()))).length;
+
+    let statusText = 'Sin iniciar';
+    let statusClass = '';
+    if (sectionProgress.completed) { statusText = 'Completado ✓'; statusClass = 'completed'; }
+    else if (answeredCount > 0) { statusText = `${answeredCount}/12`; statusClass = 'in-progress'; }
+
+    const item = document.createElement('a');
+    item.className = 'index-item';
+    item.onclick = (e) => { e.preventDefault(); openSection(section.id); };
+    item.href = '#';
+    item.innerHTML = `
+      <div class="index-num">${String(idx + 1).padStart(2, '0')}</div>
+      <div class="index-content">
+        <div class="index-label">${section.label}</div>
+        <div class="index-title">${section.title}</div>
+      </div>
+      <div class="index-progress">
+        <div class="index-status ${statusClass}">${statusText}</div>
+        <div class="index-arrow">→</div>
+      </div>
+    `;
+    grid.appendChild(item);
+  });
+
+  // Stats
+  const completed = sections.filter(s => (progress[s.id] || {}).completed).length;
+  const totalAnswered = sections.reduce((acc, s) => {
+    const sp = progress[s.id] || { answers: {} };
+    return acc + Object.values(sp.answers || {}).filter(a => a && (a.selected !== undefined || (a.text && a.text.trim()))).length;
+  }, 0);
+
+  document.getElementById('statCompleted').textContent = completed;
+  document.getElementById('statProgress').innerHTML = `${completed}<span class="small">/14</span>`;
+  document.getElementById('statAnswered').textContent = totalAnswered;
+}
+
+// ===========================================================
+// QUIZ RENDERING
+// ===========================================================
+function openSection(sectionId) {
+  currentSectionId = sectionId;
+  const section = sections.find(s => s.id === sectionId);
+  if (!section) return;
+
+  document.getElementById('indexView').classList.add('hidden');
+  document.getElementById('quizView').classList.add('active');
+
+  document.getElementById('quizSectionLabel').textContent = section.label;
+  document.getElementById('quizTitle').textContent = section.title;
+  document.getElementById('quizSubtitle').textContent = section.subtitle;
+  document.getElementById('resultVerse').textContent = section.verse;
+
+  document.getElementById('quizResult').classList.remove('show');
+
+  renderQuestions(section);
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function renderQuestions(section) {
+  const container = document.getElementById('questionsContainer');
+  container.innerHTML = '';
+  const sectionProgress = progress[section.id] || { answers: {} };
+
+  section.questions.forEach((q, idx) => {
+    const div = document.createElement('div');
+    div.className = 'question';
+    div.id = `q-${idx}`;
+    const answer = sectionProgress.answers && sectionProgress.answers[idx];
+    if (answer && (answer.selected !== undefined || (answer.text && answer.text.trim()))) {
+      div.classList.add('answered');
+    }
+
+    let optionsHtml = '';
+    if (q.type === 'multi') {
+      optionsHtml = '<div class="options">';
+      q.options.forEach((opt, oIdx) => {
+        const letter = String.fromCharCode(65 + oIdx);
+        const selected = answer && answer.selected === oIdx ? 'selected' : '';
+        optionsHtml += `
+          <div class="option ${selected}" onclick="selectOption(${idx}, ${oIdx})">
+            <div class="option-marker">${letter}</div>
+            <div class="option-text">${opt}</div>
+          </div>
+        `;
+      });
+      optionsHtml += '</div>';
+      optionsHtml += `
+        <div class="reflection-area">
+          <span class="reflection-label">Reflexión Personal · Opcional</span>
+          <textarea
+            placeholder="Escribe aquí cualquier pensamiento adicional sobre esta pregunta..."
+            oninput="saveReflection(${idx}, this.value)"
+          >${(answer && answer.text) || ''}</textarea>
+        </div>
+      `;
+    } else {
+      // reflexion only
+      optionsHtml = `
+        <div class="reflection-area" style="border-top: none; padding-top: 0; margin-top: 0;">
+          <span class="reflection-label">Tu Respuesta</span>
+          <textarea
+            placeholder="Tómate tu tiempo. Escribe desde el corazón..."
+            oninput="saveReflection(${idx}, this.value)"
+            style="min-height: 130px;"
+          >${(answer && answer.text) || ''}</textarea>
+        </div>
+      `;
+    }
+
+    div.innerHTML = `
+      <div class="question-num">${String(idx + 1).padStart(2, '0')}</div>
+      <div class="question-text">${q.q}</div>
+      ${optionsHtml}
+    `;
+    container.appendChild(div);
+  });
+}
+
+function selectOption(qIdx, oIdx) {
+  if (!progress[currentSectionId]) progress[currentSectionId] = { answers: {}, completed: false };
+  if (!progress[currentSectionId].answers) progress[currentSectionId].answers = {};
+  if (!progress[currentSectionId].answers[qIdx]) progress[currentSectionId].answers[qIdx] = {};
+  progress[currentSectionId].answers[qIdx].selected = oIdx;
+  saveProgress(progress);
+
+  // Update UI
+  const questionDiv = document.getElementById(`q-${qIdx}`);
+  questionDiv.querySelectorAll('.option').forEach((opt, i) => {
+    opt.classList.toggle('selected', i === oIdx);
+  });
+  questionDiv.classList.add('answered');
+  updateProgress();
+}
+
+function saveReflection(qIdx, text) {
+  if (!progress[currentSectionId]) progress[currentSectionId] = { answers: {}, completed: false };
+  if (!progress[currentSectionId].answers) progress[currentSectionId].answers = {};
+  if (!progress[currentSectionId].answers[qIdx]) progress[currentSectionId].answers[qIdx] = {};
+  progress[currentSectionId].answers[qIdx].text = text;
+  saveProgress(progress);
+
+  const questionDiv = document.getElementById(`q-${qIdx}`);
+  if (text.trim() || progress[currentSectionId].answers[qIdx].selected !== undefined) {
+    questionDiv.classList.add('answered');
+  }
+  updateProgress();
+}
+
+function updateProgress() {
+  if (!currentSectionId) return;
+  const section = sections.find(s => s.id === currentSectionId);
+  const sp = progress[currentSectionId] || { answers: {} };
+  const answered = Object.values(sp.answers || {}).filter(a => a && (a.selected !== undefined || (a.text && a.text.trim()))).length;
+  const pct = (answered / section.questions.length) * 100;
+  document.getElementById('quizProgressFill').style.width = pct + '%';
+  document.getElementById('quizProgressText').textContent = `${answered} de ${section.questions.length} respondidas`;
+}
+
+function goToIndex() {
+  document.getElementById('quizView').classList.remove('active');
+  document.getElementById('indexView').classList.remove('hidden');
+  document.getElementById('quizResult').classList.remove('show');
+  currentSectionId = null;
+  renderIndex();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function completeQuiz() {
+  if (!currentSectionId) return;
+  if (!progress[currentSectionId]) progress[currentSectionId] = { answers: {} };
+  progress[currentSectionId].completed = true;
+  saveProgress(progress);
+  document.getElementById('quizResult').classList.add('show');
+  document.getElementById('quizResult').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function resetQuiz() {
+  if (!currentSectionId) return;
+  if (!confirm('¿Estás seguro de que quieres reiniciar todas las respuestas de este cuestionario? Esta acción no se puede deshacer.')) return;
+  delete progress[currentSectionId];
+  saveProgress(progress);
+  const section = sections.find(s => s.id === currentSectionId);
+  renderQuestions(section);
+  updateProgress();
+  document.getElementById('quizResult').classList.remove('show');
+}
+
+// ===========================================================
+// INIT
+// ===========================================================
+document.addEventListener('DOMContentLoaded', () => {
+  renderIndex();
+});
+</script>
+
+</body>
+</html>
